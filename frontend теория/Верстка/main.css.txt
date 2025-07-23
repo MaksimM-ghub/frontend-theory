@@ -1,0 +1,87 @@
+////// для тега picture задается line-height: 0 чтобы убрать отступ
+//<picture class="guests__pict">
+//   <source srcset="img/guests1-mob.png" media="(max-width: 420px)">
+//   <source srcset="img/guests1-768.png" media="(max-width: 1023.9px)">
+//   <img class="guests__img" src="img/guests1.png" alt="Ольга Мартынова гость радио">
+//</picture>
+
+
+////// offsets задается родителю и меняется на медиазапросах
+width: calc((100% - (var(--offsets) * var(--gap))) / (var(--offsets) + 1));
+
+// Кастомный чекбокс
+//<label class="aboutus__label"> <input class="aboutus__checkbox" type="checkbox">
+//   <span class="aboutus__checkbox-text">Согласен на&nbsp;обработку персональных данных</span>
+//</label>
+
+.aboutus__label {
+    display: flex;
+    user-select: none;
+    cursor: pointer;
+}
+
+.aboutus__checkbox {
+    appearance: none;
+}
+
+.aboutus__checkbox-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 22px;
+    color: var(--whitecolor);
+    font-family: Muller;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.aboutus__checkbox-text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--whitecolor);
+  transform: translateY(-50%);
+}
+
+.aboutus__checkbox-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  background-image: url("../img/Check.svg");
+  opacity: 0;
+  transition: opacity 0.4s linear;
+}
+
+.aboutus__checkbox:checked + .aboutus__checkbox-text::after {
+  opacity: 1;
+}
+
+.aboutus__checkbox:checked + .aboutus__checkbox-text::before {
+  background: blue;
+}
+
+.aboutus__checkbox:focus-visible:not(:checked) + .aboutus__checkbox-text {
+  outline-offset: 3px;
+  outline: 1px solid var(--thirdpurplecolor);
+}
+
+/// background градиент + фон
+
+background-image: linear-gradient(90deg, rgba(48, 64, 89, 0.84) 0%, rgba(53, 65, 83, 0) 66.67%), url(../img/special1.png);
+
+// фон в тексте
+h1 {
+  background-image: url('...');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+  background-clip: text;
+}
